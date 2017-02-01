@@ -19,6 +19,11 @@ var app = angular.module('starter', ['ionic']).config(function($stateProvider, $
       templateUrl: 'templates/search.html',
       controller: 'main'
     })
+    .state('receiptSearch', {
+      url: '/receiptSearch',
+      templateUrl: 'templates/receipt-search.html',
+      controller: 'main'
+    })
     .state('farmerProfile', {
       url: '/farmerProfile',
       templateUrl: 'templates/farmer-profile.html',
@@ -33,6 +38,11 @@ var app = angular.module('starter', ['ionic']).config(function($stateProvider, $
     .state('farmList', {
       url: "/farmList",
       templateUrl: "templates/farm-list.html",
+      controller: "main"
+    })
+    .state('receiptList', {
+      url: "/receiptList",
+      templateUrl: "templates/receipt-list.html",
       controller: "main"
     })
     .state('farmerProfile.personal', {

@@ -1,0 +1,25 @@
+<ion-header-bar ng-show="showTopBar" style="background-color:#019789" class="bar-stable">
+  <h1 style="color:white;" class="title" style="font-family: 'Roboto', sans-serif;">Receipts</h1>
+</ion-header-bar>
+<ion-view>
+  <ion-content>
+
+    <div class="list" style="padding-top:2%;">
+
+      <a ng-repeat="receiptbook in results[farmerIndex].Farmer_Personal_Info.Receipt_Book track by $index" class="item" ng-click="" href="">
+        <div style="display:block;">
+          <h2 style="color:#757575;display:inline;"><b>Receipt Book Sequence</b></h2>
+          <br><p style="color:#EA7526;display:inline;">{{receiptbook.range1}} - {{receiptbook.range2}}</p><br>
+
+
+          <p ng-click="" style="position:absolute;right:5%;top:10%;max-height:40px;float:right;display:inline;color:#019789;" class="button button-clear button-positive">
+          <p style="font-weight:500;font-family: 'Roboto', sans-serif;">Date Purchased : {{receiptbook.Date_Purchased}}</p>
+          </p>
+
+        </div>
+      </a>
+    </div>
+
+  </ion-content>
+
+</ion-view>

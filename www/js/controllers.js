@@ -16,6 +16,11 @@ app.controller('main', function ($rootScope, $http, $sce, $location) {
     $rootScope.getObjects('farmers/search?searchQuery=' + searchText + "&")
   };
 
+  $rootScope.searchByReceipt = function (searchText) {
+    $rootScope.searchText = searchText;
+    $rootScope.getReceipts('receipt/' + searchText + "?")
+  };
+
   $rootScope.getFarmerProfile = function (index) {
 
     $rootScope.farmerIndex = index;
@@ -27,9 +32,13 @@ app.controller('main', function ($rootScope, $http, $sce, $location) {
     $location.path( '/farmList' );
   }
 
+  $rootScope.receiptsScreen = function () {
+    $location.path( '/receiptList' );
+  }
+
   $rootScope.propertyScreen = function (index) {
     $rootScope.farmIndex = index;
-    $location.path( '/farmProfile/livestock' );
+    $location.path( '/farmProfile/crops' );
   }
 
   $rootScope.screenTitle = function (screen) {
@@ -126,4 +135,24 @@ app.controller('main', function ($rootScope, $http, $sce, $location) {
         alert('data error');
       });
   }
+
+  $rootScope.getReceipts = function (obj) {
+    $rootScope.variable = "";
+    var access_token = "0f37f942ef033e104191515dcaeb2739aeea3773710431d61e04e5c3a88e4b120a54482da707aac7eb77d5fb08877a928905121d8e1d80facfa0bcb8c085d135";
+    var url = "http://harvest-api-nick.herokuapp.com/api/" + obj + "access_token=" + access_token;
+    //alert(url);
+    $sce.trustAsResourceUrl(url);
+    $http.get(url).success(function(response){
+      console.log(response);
+      $location.path( '/searchResults' );
+      $rootScope.getObjects('farmers/search?searchQuery=' + response.IDX_Stakeholder + "&")
+    })
+      .error(function(data, status, headers,config){
+        console.log(status);
+        console.log(headers());
+        console.log(config);
+        alert('data error');
+      });
+  }
+
 });

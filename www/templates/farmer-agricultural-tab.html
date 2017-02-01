@@ -15,8 +15,8 @@
         <div class="list">
           <a class="item item-avatar" href="">
             <img class="item-avatar-square" src="img/ic-invoice.svg">
-            <div style="display:inline;"><p>Receipt Books</p></div>
-            <button style="position:absolute;right:5%;top:10%;max-height:40px;float:right;display:inline;color:#019789;" class="button button-clear button-positive">
+            <div style="display:inline;"><p>Receipt Books  ({{results[farmerIndex].Farmer_Personal_Info.Receipt_Book.length}})</p></div>
+            <button ng-click="receiptsScreen()" style="position:absolute;right:5%;top:10%;max-height:40px;float:right;display:inline;color:#019789;" class="button button-clear button-positive">
               <span style="font-weight:500;font-family: 'Roboto', sans-serif;">VIEW DETAILS</span>
             </button>
           </a>
