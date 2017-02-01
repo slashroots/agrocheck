@@ -1,7 +1,17 @@
 <ion-view title="Dashboard">
   <ion-content class="padding">
 
-      <div id="personal-card" class="card">
+    <div class="card item padding-top padding-bottom">
+      <div class="" style="position:relative;left:5px;">
+        <p style="text-align:left;"><span style="text-align:center;font-weight:bold;">{{results[farmerIndex].Farmer_Personal_Info.First_Name}}</span>
+          <span style="text-align:left;font-weight:bold;">{{results[farmerIndex].Farmer_Personal_Info.Last_Name}}</span></p>
+        <sub style="text-align:left;">Farmer Registration ID</sub><br>
+        <p style="text-align:left;font-weight: 500;">{{results[farmerIndex].IDX_Stakeholder}}</p>
+      </div>
+    </div>
+
+
+    <div id="personal-card" class="card">
         <div class="list">
           <a class="item item-avatar" href="">
             <img class="item-avatar-square" src="img/ic-invoice.svg">
@@ -10,24 +20,24 @@
               <span style="font-weight:500;font-family: 'Roboto', sans-serif;">VIEW DETAILS</span>
             </button>
           </a>
-          <a class="item item-avatar">
+          <a class="item item-avatar" href="">
             <img class="item-avatar-square" src="img/ic-farm.svg">
-            <div style="display:inline;"><p>Farms</p></div>
+            <div style="display:inline;"><p>Farms ({{properties.length}})</p></div>
             <button style="position:absolute;right:5%;top:10%;max-height:40px;float:right;display:inline;color:#019789;" class="button button-clear button-positive">
               <span style="font-weight:500;font-family: 'Roboto', sans-serif;">VIEW DETAILS</span>
             </button>
           </a>
-          <a class="item item-avatar">
+          <a class="item item-avatar" href="">
             <img class="item-avatar-square" src="img/ic-livestock.svg">
-            <div style="display:inline;"><p>Livestock</p></div>
+            <div style="display:inline;"><p>Livestock ({{livestock.length}})</p></div>
             <button style="position:absolute;right:5%;top:10%;max-height:40px;float:right;display:inline;color:#019789;" class="button button-clear button-positive">
               <span style="font-weight:500;font-family: 'Roboto', sans-serif;">VIEW DETAILS</span>
             </button>
           </a>
-          <a class="item item-avatar">
+          <a class="item item-avatar" href="">
 
             <img class="item-avatar-square" src="img/ic-plant-with-leaves.svg">
-            <div style="display:inline;"><p>Crops</p></div>
+            <div style="display:inline;"><p>Crops  ({{crops.length}})</p></div>
             <button style="position:absolute;right:5%;top:10%;max-height:40px;float:right;display:inline;color:#019789;" class="button button-clear button-positive">
               <span style="font-weight:500;font-family: 'Roboto', sans-serif;">VIEW DETAILS</span>
             </button>

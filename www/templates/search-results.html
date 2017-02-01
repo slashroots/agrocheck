@@ -8,7 +8,7 @@
 
     <div style="font-weight:500;">&nbsp;&nbsp;&nbsp;&nbsp;Search results matching "<span ng-bind="searchText" style="color:#EA7526;"></span>"</div><br>
 
-    <a ng-repeat="result in results track by $index" class="item item-avatar" ng-click="getFarmerProfile($index)" href="">
+    <a ng-repeat="result in results track by $index" class="item item-avatar" ng-click="getFarmerProfile($index);setFarmer(result);" href="">
       <img ng-if="result.Farmer_Personal_Info.Photo_Found_YN == '1'" src="http://abisjamaica.com.jm/demo/Common/FarmerPhotos/{{result.Farmer_Personal_Info.Photo_Path}}">
       <img ng-if="result.Farmer_Personal_Info.Photo_Found_YN != '1'" src="http://abisjamaica.com.jm/Common/FarmerPhotos/no_photo.gif">
       <div style="display:inline;">
