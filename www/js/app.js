@@ -30,14 +30,11 @@ var app = angular.module('starter', ['ionic']).config(function($stateProvider, $
       templateUrl: "templates/search-results.html",
       controller: "main"
     })
-    /*.state('tab', {
-      url: "/tab",
-      abstract: true,
-      templateUrl: "templates/tabs.html"
+    .state('farmList', {
+      url: "/farmList",
+      templateUrl: "templates/farm-list.html",
+      controller: "main"
     })
-*/
-    // Each tab has its own nav history stack:
-
     .state('farmerProfile.personal', {
       url: '/personal',
       views: {
@@ -52,6 +49,30 @@ var app = angular.module('starter', ['ionic']).config(function($stateProvider, $
       views: {
         'farmerProfile-agricultural': {
           templateUrl: 'templates/farmer-agricultural-tab.html',
+          controller: 'main'
+        }
+      }
+    })
+    .state('farmProfile', {
+      url: '/farmProfile',
+      templateUrl: 'templates/farm-profile.html',
+      controller: 'main',
+      abstract:true
+    })
+    .state('farmProfile.crops', {
+      url: '/crops',
+      views: {
+        'farmProfile-crops': {
+          templateUrl: 'templates/farm-crop-tab.html',
+          controller: 'main'
+        }
+      }
+    })
+    .state('farmProfile.livestock', {
+      url: '/livestock',
+      views: {
+        'farmProfile-livestock': {
+          templateUrl: 'templates/farm-livestock-tab.html',
           controller: 'main'
         }
       }

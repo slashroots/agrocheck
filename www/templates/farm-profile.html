@@ -1,0 +1,18 @@
+<ion-header-bar ng-show="showTopBar" style="background-color:#019789" class="bar-stable">
+  <h1 style="color:white;" class="title" style="font-family: 'Roboto', sans-serif;">Farm Profile</h1>
+</ion-header-bar>
+<ion-view style="background-color: #019789;">
+
+  <ion-tabs style="background-color: #019789;border-color: #019789;">
+
+    <ion-tab title="CROPS" href="#/farmProfile/crops">
+      <ion-nav-view name="farmProfile-crops"></ion-nav-view>
+    </ion-tab>
+
+    <ion-tab title="LIVESTOCK" href="#/farmProfile/livestock">
+      <ion-nav-view name="farmProfile-livestock"></ion-nav-view>
+    </ion-tab>
+
+  </ion-tabs>
+
+</ion-view>

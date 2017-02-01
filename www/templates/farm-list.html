@@ -1,0 +1,23 @@
+<ion-header-bar ng-show="showTopBar" style="background-color:#019789" class="bar-stable">
+  <h1 style="color:white;" class="title" style="font-family: 'Roboto', sans-serif;">Farms</h1>
+</ion-header-bar>
+<ion-view>
+  <ion-content>
+
+    <div class="list" style="padding-top:2%;">
+
+      <a ng-repeat="property in properties track by $index" class="item" ng-click="getFarmProfile($index);" href="">
+        <div style="display:inline;">
+          <h2 style="color:#757575;display:inline;"><b>{{property.Property_Address}}</b></h2>
+          <br><p style="color:#EA7526;display:inline;">{{property.Parish}}</p>
+
+        </div>
+        <button ng-click="propertyScreen($index)" style="position:absolute;right:5%;top:10%;max-height:40px;float:right;display:inline;color:#019789;" class="button button-clear button-positive">
+          <span style="font-weight:500;font-family: 'Roboto', sans-serif;">VIEW DETAILS</span>
+        </button>
+      </a>
+    </div>
+
+  </ion-content>
+
+</ion-view>

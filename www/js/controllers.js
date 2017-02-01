@@ -23,6 +23,15 @@ app.controller('main', function ($rootScope, $http, $sce, $location) {
     $location.path( '/farmerProfile/personal' );
   }
 
+  $rootScope.propertiesScreen = function () {
+    $location.path( '/farmList' );
+  }
+
+  $rootScope.propertyScreen = function (index) {
+    $rootScope.farmIndex = index;
+    $location.path( '/farmProfile/livestock' );
+  }
+
   $rootScope.screenTitle = function (screen) {
     if (screen=='home') return "Farmer Search";
     else if (screen=='search-by-farmer') return "Search By Farmer I.D.";

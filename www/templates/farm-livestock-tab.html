@@ -1,0 +1,41 @@
+<ion-view title="Dashboard">
+  <ion-content class="padding">
+
+    <div class="card item padding-top padding-bottom">
+      <div class="" style="position:relative;left:5px;">
+        <p style="text-align:left;"><span style="text-align:center;font-weight:bold;">{{results[farmerIndex].Farmer_Personal_Info.First_Name}}</span>
+          <span style="text-align:left;font-weight:bold;">{{results[farmerIndex].Farmer_Personal_Info.Last_Name}}</span></p>
+        <p><sub style="text-align:left;">Farmer Registration ID</sub>
+        <sub style="text-align:right;font-weight: 500;">{{results[farmerIndex].IDX_Stakeholder}}</sub></p>
+        <p><sub style="text-align:left;">Property Location</sub>
+          <sub style="text-align:right;font-weight: 500;">{{properties[farmIndex].Parish_Extension_Name}}</sub></p>
+        <p><sub style="text-align:left;">Farm Size</sub>
+          <sub style="text-align:right;font-weight: 500;">{{properties[farmIndex].Property_Size_Ha}} Hectares</sub></p>
+      </div>
+    </div>
+
+    <div id="personal-card" class="card">
+        <div class="list">
+          <p class="padding-left" style="font-weight: 500;color:#323232;">Livestock</p>
+          <a class="item" href="" ng-repeat="moo in livestock track by $index">
+            <!--<img class="item-avatar-square" src="img/ic-invoice.svg">-->
+            <div style="display:inline;"><p>{{moo.Livestock_Name}}</p></div>
+            <div style="display:inline;"><p>&nbsp;&nbsp;&nbsp;&nbsp;Stage of Life : <span style="float:right;">{{moo.Livestock_Stage}}</span></p></div>
+            <div style="display:inline;"><p>&nbsp;&nbsp;&nbsp;&nbsp;Count : <span style="float:right;">{{moo.Livestock_Count}}</span></p></div>
+            <!--<button style="position:absolute;right:5%;top:10%;max-height:40px;float:right;display:inline;color:#019789;" class="button button-clear button-positive">
+              <span style="font-weight:500;font-family: 'Roboto', sans-serif;">VIEW DETAILS</span>
+            </button>-->
+            <!--<i style="right:10px;bottom:15px;position:absolute;" class="icon-right ion-chevron-down"></i>-->
+          </a>
+        </div>
+
+      </div>
+
+  </ion-content>
+</ion-view>
+<!--
+
+getFarmProfile($index);
+
+-->
+
