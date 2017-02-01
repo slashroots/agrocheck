@@ -1,1 +1,50 @@
 /* Empty. Add your own CSS if you like */
+
+.button.button-gold {
+  border-color: transparent;
+  background-color: #EA7526;
+  color: #FFFFFF; }
+.button.button-gold:hover {
+  color: #FFFFFF;
+  text-decoration: none; }
+.button.button-gold.active, .button.button-gold.activated {
+  background-color:#c0a062; }
+.button.button-gold.button-clear {
+  border-color: transparent;
+  background: none;
+  box-shadow: none;
+  color: #EA7526; }
+.button.button-gold.button-icon {
+  border-color: transparent;
+  background: none; }
+.button.button-gold.button-outline {
+  border-color: #EA7526;
+  background: transparent;
+  color: #625031; }
+.button.button-gold.button-outline.active, .button.button-gold.button-outline.activated {
+  background-color: #EA7526;
+  box-shadow: none;
+  color: #000000; }
+
+.rounded-image {
+  border: 2px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 5px gray;
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tabs {
+  background-color: #019789 !important;
+  border-color: #019789 !important;
+}
+
+.tab-title {
+  color: white !important;
+  font-weight: 500;
+}
+
+.item-avatar-square {
+  border-radius: 0 !important;
+}

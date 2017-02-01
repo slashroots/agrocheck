@@ -1,0 +1,33 @@
+<ion-header-bar ng-show="showTopBar" style="background-color:#019789" class="bar-stable">
+  <h1 style="color:white;" class="title" style="font-family: 'Roboto', sans-serif;">Farmer Profile</h1>
+</ion-header-bar>
+<ion-view style="background-color: #019789;">
+
+  <ion-tabs style="background-color: #019789;border-color: #019789;">
+
+    <ion-tab title="PERSONAL INFO" href="#/farmerProfile/personal">
+      <ion-nav-view name="farmerProfile-personal"></ion-nav-view>
+    </ion-tab>
+
+    <ion-tab title="AGRICULTURAL INFO" href="#/farmerProfile/agricultural">
+      <ion-nav-view name="farmerProfile-agricultural"></ion-nav-view>
+    </ion-tab>
+
+  </ion-tabs>
+
+  <!--
+
+  <div class="tabs-striped tabs-top tabs-background-positive tabs-color-light">
+    <div class="tabs" style="background-color: #019789;border-color: #019789;">
+      <a style="font-weight: 500;" class="tab-item active" ng-class="getTabState('personal')" href="">
+        PERSONAL INFO
+      </a>
+      <a style="font-weight: 500;" class="tab-item" ng-class="getTabState('agricultural')" href="">
+        AGRICULTURAL INFO
+      </a>
+    </div>
+  </div>
+
+  -->
+
+</ion-view>

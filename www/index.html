@@ -7,6 +7,8 @@
 
     <link rel="manifest" href="manifest.json">
 
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
     <!-- un-comment this code to enable service worker
@@ -38,13 +40,187 @@
   <body ng-controller="main" ng-app="starter">
 
     <ion-pane>
-      <ion-header-bar class="bar-stable">
-        <h1 class="title">Clip Mobile Application</h1>
-      </ion-header-bar>
-      <ion-content>
-        <button ng-click="getFarmers()">Get Farmers</button>
-        <p ng-bind="variable"></p>
-      </ion-content>
+
+      <ion-nav-view></ion-nav-view>
+
+      <!--<ion-content style="">
+        <div ng-show="screen=='home'">
+          <div class="list list-inset">
+          <a style="border-radius:5px;" ng-click="screen='search-by-farmer'" class="item item-thumbnail-left" href="#">
+            <img src="img/ic-farmer.svg">
+            <p style="color:#757575;">FIND A FARMER</p>
+            <h2 style="color:#757575;"><b>By Farmer I.D.</b></h2>
+          </a>
+            <br>
+          <a style="border-radius:5px;" ng-click="screen='search-by-receipt'" class="item item-thumbnail-left" href="#">
+            <img src="img/ic-invoice.svg">
+            <p style="color:#757575;">FIND A FARMER</p>
+            <h2 style="color:#757575;"><b>By Receipt Number</b></h2>
+          </a>
+          </div>
+        </div>
+
+        <div ng-show="screen=='search-by-farmer'">
+            <a ng-click="screen='search-by-farmer'" class="item item-thumbnail-left" href="#">
+              <img src="img/ic-farmer.svg">
+              <p style="color:#757575;">FIND A FARMER</p>
+              <h2 style="color:#757575;"><b>By Farmer I.D.</b></h2>
+            </a>
+          <div class="list list-inset" style="">
+            <label class="item item-input item-floating-label">
+              <span class="input-label">Enter a Farmer's ID Number</span>
+              <input style="border:0;border-width:0px;" ng-model="searchText" type="text" placeholder="Enter a Farmer's ID Number">
+            </label>
+            <button style="border-radius:5px;" ng-click="screen = search(searchText)" class="button button-gold button-full"><span style="font-weight:500";>FIND FARMER</span></button>
+          </div>
+
+        </div>
+
+        <div ng-show="screen=='search-results'">
+
+          <div class="list" style="padding-top:2%;">
+
+            <div style="font-weight:500;">&nbsp;&nbsp;&nbsp;&nbsp;Search results matching "<span style="color:#EA7526;">[{{searchText}}]</span>"</div><br>
+
+            <a ng-repeat="result in results track by $index" class="item item-avatar" ng-click="$parent.screen = setFarmer(result);$parent.showTopBar = false;" href="#">
+              <img ng-if="result.Farmer_Personal_Info.Photo_Found_YN == '1'" src="http://abisjamaica.com.jm/demo/Common/FarmerPhotos/{{result.Farmer_Personal_Info.Photo_Path}}">
+              <img ng-if="result.Farmer_Personal_Info.Photo_Found_YN != '1'" src="http://abisjamaica.com.jm/Common/FarmerPhotos/no_photo.gif">
+              <div style="display:inline;">
+              <h2 style="color:#757575;display:inline;"><b>{{result.Farmer_Personal_Info.First_Name}} {{result.Farmer_Personal_Info.Last_Name}}</b></h2>
+              <br><p style="color:#EA7526;display:inline;">{{result.Farmer_Personal_Info.Stakeholder_Num}}</p>
+
+              </div>
+              <button style="position:absolute;right:5%;top:10%;max-height:40px;float:right;display:inline;color:#019789;" class="button button-clear button-positive">
+                <span style="font-weight:500;font-family: 'Roboto', sans-serif;">VIEW DETAILS</span>
+              </button>
+            </a>
+
+          </div>
+
+
+
+          <button ng-click="screen='search-by-farmer'" class="button button-assertive">
+            Back to Search By Farmer
+          </button>
+
+
+
+        </div>
+
+        <div style="background-color: #019789;" ng-show="screen=='farmer-profile'">
+
+          <div class="row">
+            <div class="col">
+              <img class="" style="margin-left:auto;margin-right:auto;display:block;" ng-if="farmer.Farmer_Personal_Info.Photo_Found_YN == '1'" src="http://abisjamaica.com.jm/demo/Common/FarmerPhotos/{{farmer.Farmer_Personal_Info.Photo_Path}}">
+              <img class="" style="margin-left:auto;margin-right:auto;display:block;" ng-if="farmer.Farmer_Personal_Info.Photo_Found_YN != '1'" src="http://abisjamaica.com.jm/Common/FarmerPhotos/no_photo.gif">
+              <br><p style="color:white;text-align:center;"><span style="color:white;text-align:center;font-weight:bold;" ng-bind="farmer.Farmer_Personal_Info.First_Name"></span>&nbsp;
+              <span style="color:white;text-align:center;font-weight:bold;" ng-bind="farmer.Farmer_Personal_Info.Last_Name"></span></p>
+              <p style="color:white;text-align:center;">Farmer Registration ID</p>
+              <p style="color:white;text-align:center;">{{farmer.IDX_Stakeholder}}</p>
+              <p style="color:white;text-align:center;">Last Updated : {{farmer.Update_Date}}</p>
+            </div>
+          </div>
+
+          <div class="tabs-striped tabs-background-positive tabs-color-light">
+            <div class="tabs" style="background-color: #019789;">
+              <a class="tab-item active" ng-class="getTabState('personal')" href="#">
+                Personal Info
+              </a>
+              <a class="tab-item" ng-class="getTabState('agricultural')" href="#">
+                Agricultural Info
+              </a>
+            </div>
+          </div>
+
+          <div id="personal-card" class="card">
+            <div class="item item-text-wrap">
+              <b>Personal Info</b><br>
+              <p>Farmer Type : {{farmer.Farmer_Type}}</p>
+              <p>Alias : {{farmer.Farmer_Personal_Info.Alias}}</p>
+              <p>Sex : {{farmer.Farmer_Personal_Info.Gender}}</p>
+              <p>D.O.B. : {{farmer.Farmer_Personal_Info.DOB}}</p>
+              <p>TRN : </p>
+              <p>Residential Address : {{farmer.Farmer_Personal_Info.Res_Street_Address}}</p>
+            </div>
+          </div>
+
+          <button ng-click="screen='search-results'" class="button button-assertive">
+            Back to Search Results
+          </button>
+
+        </div>
+
+        <div ng-show="screen=='property-list'">
+
+          <div class="list" style="padding-top:2%;">
+
+            <div class="card" ng-repeat="property in properties track by $index">
+              <div class="item item-text-wrap">
+                District : {{property.District}}<br>
+                Parish : {{property.Parish}}<br>
+                Extension : {{property.Parish_Extension_Name}}<br>
+                Property Size : {{property.Property_Size}}<br>
+              </div>
+            </div>
+
+          </div>
+
+          <button ng-click="screen='farmer-profile'" class="button button-assertive">
+            Back to Farmer Profile
+          </button>
+
+        </div>
+
+        <div ng-show="screen=='crop-list'">
+
+          <div class="list" style="padding-top:2%;">
+
+            <div class="card" ng-repeat="crop in crops track by $index">
+              <div class="item item-text-wrap">
+                Name : {{crop.Crop_Name}}<br>
+                Variety : {{crop.Crop_Variety}}<br>
+                Area : {{crop.Crop_Total_Area}}<br>
+                Count : {{crop.Crop_Count}}<br>
+                District : {{crop.District}}<br>
+                Parish : {{crop.Parish}}<br>
+                Extension : {{crop.Parish_Extension_Name}}<br>
+              </div>
+            </div>
+
+          </div>
+
+
+          <button ng-click="screen='farmer-profile'" class="button button-assertive">
+            Back to Farmer Profile
+          </button>
+
+        </div>
+
+        <div ng-show="screen=='livestock-list'">
+
+          <div class="list" style="padding-top:2%;">
+
+            <div class="card" ng-repeat="moo in livestock track by $index">
+              <div class="item item-text-wrap">
+                Name : {{moo.Livestock_Name}}<br>
+                Stage : {{moo.Live_Stage}}<br>
+                Capacity : {{moo.Livestock_Capacity}}<br>
+                Count : {{moo.Livestock_Count}}<br>
+                District : {{moo.District}}<br>
+                Parish : {{moo.Parish}}<br>
+                Extension : {{moo.Parish_Extension_Name}}<br>
+              </div>
+            </div>
+
+          </div>
+
+          <button ng-click="screen='farmer-profile'" class="button button-assertive">
+            Back to Farmer Profile
+          </button>
+
+        </div>
+
+      </ion-content>-->
     </ion-pane>
   </body>
 </html>

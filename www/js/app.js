@@ -3,7 +3,60 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-var app = angular.module('starter', ['ionic']).config(function($httpProvider){
+var app = angular.module('starter', ['ionic']).config(function($stateProvider, $urlRouterProvider, $httpProvider, $ionicConfigProvider){
+
+  $ionicConfigProvider.tabs.position('top');
+
+  $stateProvider
+    .state('home', {
+      url: '/home',
+      templateUrl: 'templates/home.html',
+      controller: 'main',
+      sticky: true
+    })
+    .state('farmerSearch', {
+      url: '/farmerSearch',
+      templateUrl: 'templates/search.html',
+      controller: 'main'
+    })
+    .state('farmerProfile', {
+      url: '/farmerProfile',
+      templateUrl: 'templates/farmer-profile.html',
+      controller: 'main',
+      abstract:true
+    })
+    .state('searchResults', {
+      url: "/searchResults",
+      templateUrl: "templates/search-results.html",
+      controller: "main"
+    })
+    /*.state('tab', {
+      url: "/tab",
+      abstract: true,
+      templateUrl: "templates/tabs.html"
+    })
+*/
+    // Each tab has its own nav history stack:
+
+    .state('farmerProfile.personal', {
+      url: '/personal',
+      views: {
+        'farmerProfile-personal': {
+          templateUrl: 'templates/farmer-personal-tab.html',
+          controller: 'main'
+        }
+      }
+    })
+    .state('farmerProfile.agricultural', {
+      url: '/agricultural',
+      views: {
+        'farmerProfile-agricultural': {
+          templateUrl: 'templates/farmer-agricultural-tab.html',
+          controller: 'main'
+        }
+      }
+    });
+  $urlRouterProvider.otherwise('/home');
   delete $httpProvider.defaults.headers.common['X-Requested-With'];
 })
 

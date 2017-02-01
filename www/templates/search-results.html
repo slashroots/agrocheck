@@ -1,0 +1,27 @@
+<ion-header-bar ng-show="showTopBar" style="background-color:#019789" class="bar-stable">
+  <h1 style="color:white;" class="title" style="font-family: 'Roboto', sans-serif;">Search Results</h1>
+</ion-header-bar>
+<ion-view>
+  <ion-content>
+
+  <div class="list" style="padding-top:2%;">
+
+    <div style="font-weight:500;">&nbsp;&nbsp;&nbsp;&nbsp;Search results matching "<span ng-bind="searchText" style="color:#EA7526;"></span>"</div><br>
+
+    <a ng-repeat="result in results track by $index" class="item item-avatar" ng-click="getFarmerProfile($index)" href="">
+      <img ng-if="result.Farmer_Personal_Info.Photo_Found_YN == '1'" src="http://abisjamaica.com.jm/demo/Common/FarmerPhotos/{{result.Farmer_Personal_Info.Photo_Path}}">
+      <img ng-if="result.Farmer_Personal_Info.Photo_Found_YN != '1'" src="http://abisjamaica.com.jm/Common/FarmerPhotos/no_photo.gif">
+      <div style="display:inline;">
+        <h2 style="color:#757575;display:inline;"><b>{{result.Farmer_Personal_Info.First_Name}} {{result.Farmer_Personal_Info.Last_Name}}</b></h2>
+        <br><p style="color:#EA7526;display:inline;">{{result.Farmer_Personal_Info.Stakeholder_Num}}</p>
+
+      </div>
+      <button style="position:absolute;right:5%;top:10%;max-height:40px;float:right;display:inline;color:#019789;" class="button button-clear button-positive">
+        <span style="font-weight:500;font-family: 'Roboto', sans-serif;">VIEW DETAILS</span>
+      </button>
+    </a>
+    </div>
+
+  </ion-content>
+
+  </ion-view>
