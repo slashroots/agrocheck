@@ -11,12 +11,14 @@ app.controller('main', function ($rootScope, $http, $sce, $location) {
   $rootScope.showTopBar = true;
 
   $rootScope.search = function (searchText) {
+    $rootScope.results = "";
     $rootScope.searchText = searchText;
     $location.path( '/searchResults' );
     $rootScope.getObjects('farmers/search?searchQuery=' + searchText + "&")
   };
 
   $rootScope.searchByReceipt = function (searchText) {
+    $rootScope.results = "";
     $rootScope.searchText = searchText;
     $rootScope.getReceipts('receipt/' + searchText + "?")
   };
@@ -155,4 +157,9 @@ app.controller('main', function ($rootScope, $http, $sce, $location) {
       });
   }
 
+  $rootScope.parseDate = function (date) {
+    newDate = new Date(Date.parse(date));
+    ret = newDate.toDateString();
+    return ret;
+  }
 });

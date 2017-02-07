@@ -10,7 +10,7 @@
           <span style="text-align:left;font-weight:bold;">{{results[farmerIndex].Farmer_Personal_Info.Last_Name}}</span></p>
         <sub style="text-align:left;">Farmer Registration ID</sub><br>
         <p style="text-align:left;font-weight: 500;">{{results[farmerIndex].IDX_Stakeholder}}</p>
-        <sub style="text-align:left;">Last Updated : {{results[farmerIndex].Update_Date}}</sub>
+        <sub style="text-align:left;">Last Updated : {{parseDate(results[farmerIndex].Update_Date)}}</sub>
         </div>
       </div>
 
@@ -18,10 +18,10 @@
         <div class="item item-text-wrap">
           <b>Personal Information</b><br><br>
           <p>Farmer Type : {{results[farmerIndex].Farmer_Type}}<br></p>
-          <p>Alias : {{results[farmerIndex].Farmer_Personal_Info.Alias}}<br></p>
+          <p>Alias : {{results[farmerIndex].Farmer_Personal_Info.Alias !== '' ? results[farmerIndex].Farmer_Personal_Info.Alias : "None Provided"}}<br></p>
           <p>Sex : {{results[farmerIndex].Farmer_Personal_Info.Gender}}<br></p>
-          <p>D.O.B. : {{results[farmerIndex].Farmer_Personal_Info.DOB}}<br></p>
-          <p>TRN : <br></p>
+          <p>D.O.B. : {{parseDate(results[farmerIndex].Farmer_Personal_Info.DOB)}}<br></p>
+          <p>TRN : None Provided<br></p>
           <p>Residential Address : {{results[farmerIndex].Farmer_Personal_Info.Res_Street_Address}}<br></p>
         </div>
       </div>

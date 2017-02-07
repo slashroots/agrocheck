@@ -17,6 +17,7 @@
     <div id="personal-card" class="card">
         <div class="list">
           <p class="padding-left" style="font-weight: 500;color:#323232;">Livestock</p>
+          <p ng-if="livestock.length < 1">There are no livestock animals to display.</p>
           <a class="item" href="" ng-repeat="moo in livestock track by $index">
             <!--<img class="item-avatar-square" src="img/ic-invoice.svg">-->
             <div style="display:inline;"><p>{{moo.Livestock_Name}}</p></div>

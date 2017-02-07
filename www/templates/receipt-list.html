@@ -1,10 +1,14 @@
 <ion-header-bar ng-show="showTopBar" style="background-color:#019789" class="bar-stable">
+  <img style="position:absolute;top:10px;left:10px;" src="img/ic_reorder_white_24px.svg">
   <h1 style="color:white;" class="title" style="font-family: 'Roboto', sans-serif;">Receipts</h1>
+  <img style="position:absolute;right:10px;float:right;" src="img/ic-call-center-worker-with-headset-white.svg">
 </ion-header-bar>
 <ion-view>
   <ion-content>
 
     <div class="list" style="padding-top:2%;">
+
+      <p ng-if="results[farmerIndex].Farmer_Personal_Info.Receipt_Book.length < 1">There are no receipts to display.</p>
 
       <a ng-repeat="receiptbook in results[farmerIndex].Farmer_Personal_Info.Receipt_Book track by $index" class="item" ng-click="" href="">
         <div style="display:block;">
@@ -13,7 +17,7 @@
 
 
           <p ng-click="" style="position:absolute;right:5%;top:10%;max-height:40px;float:right;display:inline;color:#019789;" class="button button-clear button-positive">
-          <p style="font-weight:500;font-family: 'Roboto', sans-serif;">Date Purchased : {{receiptbook.Date_Purchased}}</p>
+          <p style="font-weight:500;font-family: 'Roboto', sans-serif;">Date Purchased : {{parseDate(receiptbook.Date_Purchased)}}</p>
           </p>
 
         </div>
