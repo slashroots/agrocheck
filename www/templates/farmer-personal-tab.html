@@ -8,8 +8,9 @@
         <div class="" style="position:relative;left:5px;">
           <p style="text-align:left;"><span style="text-align:center;font-weight:bold;">{{results[farmerIndex].Farmer_Personal_Info.First_Name}}</span>
           <span style="text-align:left;font-weight:bold;">{{results[farmerIndex].Farmer_Personal_Info.Last_Name}}</span></p>
+          <p style="display : flex;align-items : center;"><img style="display:inline;font-size:18px;" src="img/ic_check_circle_black_18px.svg"/>&nbsp;Verified Farmer</p>
         <sub style="text-align:left;">Farmer Registration ID</sub><br>
-        <p style="text-align:left;font-weight: 500;">{{results[farmerIndex].IDX_Stakeholder}}</p>
+        <p style="text-align:left;font-weight: 500;">{{results[farmerIndex].Farmer_Personal_Info.Stakeholder_Num}}</p>
         <sub style="text-align:left;">Last Updated : {{parseDate(results[farmerIndex].Update_Date)}}</sub>
         </div>
       </div>
@@ -17,24 +18,22 @@
       <div class="card">
         <div class="item item-text-wrap">
           <b>Personal Information</b><br><br>
-          <p>Farmer Type : {{results[farmerIndex].Farmer_Type}}<br></p>
-          <p>Alias : {{results[farmerIndex].Farmer_Personal_Info.Alias !== '' ? results[farmerIndex].Farmer_Personal_Info.Alias : "None Provided"}}<br></p>
-          <p>Sex : {{results[farmerIndex].Farmer_Personal_Info.Gender}}<br></p>
-          <p>D.O.B. : {{parseDate(results[farmerIndex].Farmer_Personal_Info.DOB)}}<br></p>
-          <p>TRN : None Provided<br></p>
-          <p>Residential Address : {{results[farmerIndex].Farmer_Personal_Info.Res_Street_Address}}<br></p>
+
+          <p ng-click="showFarmerNumbers()" ng-if="results[farmerIndex].Farmer_Personal_Info.Res_Tele_Num != '' && results[farmerIndex].Farmer_Personal_Info.Res_Tele_Num != undefined" style="border-style:solid;border-width:1px;border-color:#DCDEE2;border-radius:4px;margin-bottom:5px;" class="margin-bottom padding-right padding-left padding-top padding-bottom">
+            Call {{results[farmerIndex].Farmer_Personal_Info.First_Name}} {{results[farmerIndex].Farmer_Personal_Info.Last_Name}}<span style="float:right;font-size: 24px;"><a ng-href="#" ng-click="showFarmerNumbers()"><img style="height:18px;width:18px;opacity:0.6;" src="img/ic_call_black_24px.svg"/></a></span>
+          </p>
+          <p ng-if="(results[farmerIndex].Farmer_Personal_Info.Res_Tele_Num == '' || results[farmerIndex].Farmer_Personal_Info.Res_Tele_Num == undefined) && (results[farmerIndex].Farmer_Personal_Info.Bus_Tele_Num == '' || results[farmerIndex].Farmer_Personal_Info.Bus_Tele_Num == undefined) && (results[farmerIndex].Farmer_Personal_Info.Cell_Num == '' || results[farmerIndex].Farmer_Personal_Info.Cell_Num == undefined)" style="border-style:solid;border-width:1px;border-color:#DCDEE2;border-radius:4px;margin-bottom:5px;" class="margin-bottom padding-right padding-left padding-top padding-bottom">
+            No phone numbers available!
+          </p>
+
+          <p style="margin-top:15px;text-align: right;"><span style="float:left;">Farmer Type : </span><span class="">{{results[farmerIndex].Farmer_Type}}</span><br></p>
+          <p>Alias : <span class="right-align">{{results[farmerIndex].Farmer_Personal_Info.Alias !== '' ? results[farmerIndex].Farmer_Personal_Info.Alias : "None Provided"}}</span><br></p>
+          <p>Sex : <span class="right-align">{{results[farmerIndex].Farmer_Personal_Info.Gender}}</span><br></p>
+          <p>D.O.B. : <span class="right-align">{{parseDate(results[farmerIndex].Farmer_Personal_Info.DOB)}}</span><br></p>
+          <p>TRN : <span class="right-align">None Provided</span><br></p>
+          <p>Residential Address : <span class="right-align">{{results[farmerIndex].Farmer_Personal_Info.Res_Street_Address}}</span><br></p>
         </div>
       </div>
-
-      <!--<div class="col">
-        <img class="" style="margin-left:auto;margin-right:auto;display:block;" ng-if="results[farmerIndex].Farmer_Personal_Info.Photo_Found_YN == '1'" src="http://abisjamaica.com.jm/demo/Common/FarmerPhotos/{{results[farmerIndex].Farmer_Personal_Info.Photo_Path}}">
-        <img class="" style="margin-left:auto;margin-right:auto;display:block;" ng-if="results[farmerIndex].Farmer_Personal_Info.Photo_Found_YN != '1'" src="http://abisjamaica.com.jm/Common/FarmerPhotos/no_photo.gif">
-        <br><p style="color:white;text-align:center;"><span style="color:white;text-align:center;font-weight:bold;" ng-bind="results[farmerIndex].Farmer_Personal_Info.First_Name"></span>&nbsp;
-        <span style="color:white;text-align:center;font-weight:bold;" ng-bind="results[farmerIndex].Farmer_Personal_Info.Last_Name"></span></p>
-        <p style="color:white;text-align:center;">Farmer Registration ID</p>
-        <p style="color:white;text-align:center;">{{results[farmerIndex].IDX_Stakeholder}}</p>
-        <p style="color:white;text-align:center;">Last Updated : {{results[farmerIndex].Update_Date}}</p>
-      </div>-->
 
     </div>
 

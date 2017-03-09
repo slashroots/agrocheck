@@ -48,3 +48,27 @@
 .item-avatar-square {
   border-radius: 0 !important;
 }
+
+a.item:first-of-type {
+  border-top-style: none;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.input-label {
+  opacity: 0.5 !important;
+}
+
+.tabs {
+  padding-bottom: 3px !important;
+}
+
+.tab-item-active {
+  border-bottom-style: solid !important;
+  border-bottom-color: white !important;
+  border-bottom-width: 3px !important;
+}
+
+.right-align {
+  float: right;
+}

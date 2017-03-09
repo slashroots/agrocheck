@@ -9,6 +9,8 @@
           <sub style="text-align:right;font-weight: 500;">{{results[farmerIndex].IDX_Stakeholder}}</sub></p>
         <p><sub style="text-align:left;">Property Location</sub>
           <sub style="text-align:right;font-weight: 500;">{{properties[farmIndex].Parish_Extension_Name}}</sub></p>
+        <p><sub style="text-align:left;">Property Address</sub>
+          <sub style="text-align:right;font-weight: 500;">{{properties[farmIndex].Property_Address}}</sub></p>
         <p><sub style="text-align:left;">Farm Size</sub>
           <sub style="text-align:right;font-weight: 500;">{{properties[farmIndex].Property_Size_Ha}} Hectares</sub></p>
       </div>
@@ -17,13 +19,14 @@
     <div id="personal-card" class="card">
       <div class="list">
         <p class="padding-left" style="font-weight: 500;color:#323232;">Crops</p>
-        <p ng-if="crops.length < 1">There are no crops to display.</p>
-        <a class="item" href="" ng-repeat="crop in crops track by $index">
+        <p class="padding-left" ng-if="crops.length < 1">There are no crops to display.</p>
+        <a class="item" href="" ng-repeat="crop in crops | filter: properties[farmIndex].IDX_Property track by $index">
           <!--<img class="item-avatar-square" src="img/ic-invoice.svg">-->
           <div style="display:inline;"><p>{{crop.Crop_Name}}</p></div>
           <div style="display:inline;"><p>&nbsp;&nbsp;&nbsp;&nbsp;Variety : <span style="float:right;">{{crop.Crop_Variety}}</span></p></div>
           <div style="display:inline;"><p>&nbsp;&nbsp;&nbsp;&nbsp;Count : <span style="float:right;">{{crop.Crop_Count}}</span></p></div>
           <div style="display:inline;"><p>&nbsp;&nbsp;&nbsp;&nbsp;Plant Date : <span style="float:right;">{{parseDate(crop.Plant_Date)}}</span></p></div>
+          <div style="display:inline;"><p>&nbsp;&nbsp;&nbsp;&nbsp;Last Updated : <span style="float:right;">{{parseDate(crop.Update_Date)}}</span></p></div>
           <!--<button style="position:absolute;right:5%;top:10%;max-height:40px;float:right;display:inline;color:#019789;" class="button button-clear button-positive">
             <span style="font-weight:500;font-family: 'Roboto', sans-serif;">VIEW DETAILS</span>
           </button>-->

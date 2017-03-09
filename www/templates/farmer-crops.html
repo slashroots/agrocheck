@@ -1,0 +1,41 @@
+<ion-header-bar ng-show="showTopBar" style="background-color:#019789;border-style:none;" class="bar-stable">
+  <img ng-click="goBack()" style="position:absolute;top:10px;left:10px;" src="img/ic_arrow_back_white_24px.svg">
+  <h1 class="title" style="color:white;font-family: 'Roboto', sans-serif;">Crops</h1>
+  <img style="position:absolute;right:10px;float:right;" src="img/ic-call-center-worker-with-headset-white.svg">
+</ion-header-bar>
+<ion-view>
+  <ion-content>
+    <div style="background-color:#019789" class="padding-bottom">
+      <p class="padding-left padding-right" style="padding-top:5px;padding-bottom:8px;padding-left:30px;padding-right:30px;color:white;font-family: 'Roboto', sans-serif;">
+        <span style="position:relative;top:5px;text-align: left;font-weight:500;">{{results[farmerIndex].Farmer_Personal_Info.First_Name}} {{results[farmerIndex].Farmer_Personal_Info.Last_Name}}</span>
+        <a href="#/farmerProfile/personal" style="border-style:solid;border-color:white;border-radius:3px;border-width:2px;padding:5px;text-decoration:none;color:white;float: right;font-weight:bold;">VIEW FARMER PROFILE</a>
+      </p>
+      <p class="padding-left padding-right" style="padding-left:30px;padding-right:30px;color:white;font-family: 'Roboto', sans-serif;">
+        <span style="text-align: left;font-weight:500;">Farmer Registration ID</span>
+        <span style="float: right;">{{results[farmerIndex].Farmer_Personal_Info.Stakeholder_Num}}</span>
+      </p>
+    </div>
+
+    <div id="personal-card" class="card">
+      <div class="list">
+        <p class="padding-left" style="font-weight: 500;color:#323232;">Crops</p>
+        <p class="padding-left" ng-if="crops.length < 1">There are no crops to display.</p>
+        <a class="item" href="" ng-repeat="crop in crops track by $index">
+          <!--<img class="item-avatar-square" src="img/ic-invoice.svg">-->
+          <div style="display:inline;"><p>{{crop.Crop_Name}}</p></div>
+          <div style="display:inline;"><p>&nbsp;&nbsp;&nbsp;&nbsp;Variety : <span style="float:right;">{{crop.Crop_Variety}}</span></p></div>
+          <div style="display:inline;"><p>&nbsp;&nbsp;&nbsp;&nbsp;Count : <span style="float:right;">{{crop.Crop_Count}}</span></p></div>
+          <div style="display:inline;"><p>&nbsp;&nbsp;&nbsp;&nbsp;Plant Date : <span style="float:right;">{{parseDate(crop.Plant_Date)}}</span></p></div>
+          <div style="display:inline;"><p>&nbsp;&nbsp;&nbsp;&nbsp;Last Updated : <span style="float:right;">{{parseDate(crop.Update_Date)}}</span></p></div>
+          <!--<button style="position:absolute;right:5%;top:10%;max-height:40px;float:right;display:inline;color:#019789;" class="button button-clear button-positive">
+            <span style="font-weight:500;font-family: 'Roboto', sans-serif;">VIEW DETAILS</span>
+          </button>-->
+          <!--<i style="right:10px;bottom:15px;position:absolute;" class="icon-right ion-chevron-down"></i>-->
+        </a>
+      </div>
+
+    </div>
+
+  </ion-content>
+
+</ion-view>

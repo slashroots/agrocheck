@@ -14,9 +14,14 @@ var app = angular.module('starter', ['ionic']).config(function($stateProvider, $
       controller: 'main',
       sticky: true
     })
-    .state('farmerSearch', {
-      url: '/farmerSearch',
-      templateUrl: 'templates/search.html',
+    .state('farmerNameSearch', {
+      url: '/farmerNameSearch',
+      templateUrl: 'templates/search-by-name.html',
+      controller: 'main'
+    })
+    .state('farmerIDSearch', {
+      url: '/farmerIDSearch',
+      templateUrl: 'templates/search-by-id.html',
       controller: 'main'
     })
     .state('receiptSearch', {
@@ -29,6 +34,16 @@ var app = angular.module('starter', ['ionic']).config(function($stateProvider, $
       templateUrl: 'templates/farmer-profile.html',
       controller: 'main',
       abstract:true
+    })
+    .state('farmerCrops', {
+      url: '/farmerCrops',
+      templateUrl: 'templates/farmer-crops.html',
+      controller: 'main'
+    })
+    .state('farmerLivestock', {
+      url: '/farmerLivestock',
+      templateUrl: 'templates/farmer-livestock.html',
+      controller: 'main'
     })
     .state('searchResults', {
       url: "/searchResults",

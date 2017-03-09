@@ -1,17 +1,23 @@
 <ion-view>
   <ion-header-bar style="background-color:#019789" class="bar-stable">
-    <img style="position:absolute;top:10px;left:10px;" src="img/ic_reorder_white_24px.svg">
-    <h1 style="color:white;" class="title" style="font-family: 'Roboto', sans-serif;">Farmer Search</h1>
+    <!--<img style="position:absolute;top:10px;left:10px;" src="img/ic_reorder_white_24px.svg">-->
+    <h1 class="title" style="color:white;font-family: 'Roboto', sans-serif;">Farmer Search</h1>
   </ion-header-bar>
   <ion-content>
   <div class="list list-inset">
-    <a style="border-radius:5px;" class="item item-thumbnail-left" href="#/farmerSearch">
+    <a  style="border-top-style: solid;border-radius:5px;margin-top: -1px;padding-top: 16px;" class="item item-thumbnail-left" ng-click="searchBox('farmerNameSearch')">
       <img src="img/ic-farmer.svg">
       <p style="color:#757575;">FIND A FARMER</p>
-      <h2 style="color:#757575;"><b>By Farmer I.D. or Name</b></h2>
+      <h2 style="color:#757575;"><b>By Name or Alias</b></h2>
     </a>
     <br>
-    <a style="border-radius:5px;" ng-click="screen='search-by-receipt'" class="item item-thumbnail-left" href="#/receiptSearch">
+    <a  style="border-top-style: solid;border-radius:5px;margin-top: -1px;padding-top: 16px;" class="item item-thumbnail-left" ng-click="searchBox('farmerIDSearch')">
+      <img src="img/ic_farmer_id.svg">
+      <p style="color:#757575;">FIND A FARMER</p>
+      <h2 style="color:#757575;"><b>By Farmer I.D.</b></h2>
+    </a>
+    <br>
+    <a style="border-radius:5px;" ng-click="searchBox('receiptSearch')" class="item item-thumbnail-left">
       <img src="img/ic-invoice.svg">
       <p style="color:#757575;">FIND A FARMER</p>
       <h2 style="color:#757575;"><b>By Receipt Number</b></h2>

@@ -1,20 +1,20 @@
 <ion-header-bar style="background-color:#019789" class="bar-stable">
   <img ng-click="goBack()" style="position:absolute;top:10px;left:10px;" src="img/ic_arrow_back_white_24px.svg">
-  <h1 style="position:absolute;left:30px;color:white;" class="title" style="font-family: 'Roboto', sans-serif;">Search By Receipt #</h1>
+  <h1 style="position:absolute;left:30px;color:white;" class="title" style="font-family: 'Roboto', sans-serif;">Search By Farmer Name I.D.</h1>
 </ion-header-bar>
 <ion-view >
   <ion-content>
   <a style="margin-top: 11px;padding-top: 16px;margin-left:30px;margin-right:30px;border-style: none;" ng-click="screen='search-by-farmer'" class="item item-thumbnail-left" href="#">
-    <img src="img/ic-invoice.svg">
+    <img src="img/ic_farmer_id.svg">
     <p style="color:#757575;">FIND A FARMER</p>
-    <h2 style="color:#757575;"><b>By Receipt #</b></h2>
+    <h2 style="color:#757575;"><b>By Farmer I.D.</b></h2>
   </a>
   <div class="list list-inset" style="border-top-style: solid;border-top-width: 1px;border-top-color: #CCC;padding-top: 20px;">
     <label style="border-style:none;border-bottom-style: solid;" class="item item-input item-floating-label">
-      <span class="input-label">Enter the receipt #</span>
+      <span class="input-label">Enter a Farmer's ID Number</span>
       <input style="border:0;border-width:0px;" ng-model="searchText" type="text" placeholder="">
     </label>
-    <button style="border-radius:5px;" ng-click="searchByReceipt(searchText)" class="button button-gold button-full"><span style="font-weight:500";>FIND FARMER</span></button>
+    <button style="border-radius:5px;" ng-click="search(searchText)" class="button button-gold button-full"><span style="font-weight:500";>FIND FARMER</span></button>
   </div>
   </ion-content>
 </ion-view>

@@ -6,15 +6,15 @@
         <p style="text-align:left;"><span style="text-align:center;font-weight:bold;">{{results[farmerIndex].Farmer_Personal_Info.First_Name}}</span>
           <span style="text-align:left;font-weight:bold;">{{results[farmerIndex].Farmer_Personal_Info.Last_Name}}</span></p>
         <sub style="text-align:left;">Farmer Registration ID</sub><br>
-        <p style="text-align:left;font-weight: 500;">{{results[farmerIndex].IDX_Stakeholder}}</p>
+        <p style="text-align:left;font-weight: 500;">{{results[farmerIndex].Farmer_Personal_Info.Stakeholder_Num}}</p>
       </div>
     </div>
 
 
     <div id="personal-card" class="card">
         <div class="list">
-          <a class="item item-avatar" href="">
-            <img class="item-avatar-square" src="img/ic-invoice.svg">
+          <a style="border-top-style: none;margin-top: -1px;padding-top: 16px;" class="item item-avatar" href="">
+            <img class="item-avatar-square" src="img/ic-receipt-book.svg">
             <div style="display:inline;"><p>Receipt Books  ({{results[farmerIndex].Farmer_Personal_Info.Receipt_Book.length}})</p></div>
             <button ng-click="receiptsScreen()" style="position:absolute;right:5%;top:10%;max-height:40px;float:right;display:inline;color:#019789;" class="button button-clear button-positive">
               <span style="font-weight:500;font-family: 'Roboto', sans-serif;">VIEW DETAILS</span>
@@ -27,14 +27,14 @@
               <span style="font-weight:500;font-family: 'Roboto', sans-serif;">VIEW DETAILS</span>
             </button>
           </a>
-          <a class="item item-avatar"  href="#/farmProfile/livestock">
+          <a class="item item-avatar"  href="#/farmerLivestock">
             <img class="item-avatar-square" src="img/ic-livestock.svg">
             <div style="display:inline;"><p>Livestock ({{livestock.length}})</p></div>
             <button style="position:absolute;right:5%;top:10%;max-height:40px;float:right;display:inline;color:#019789;" class="button button-clear button-positive">
               <span style="font-weight:500;font-family: 'Roboto', sans-serif;">VIEW DETAILS</span>
             </button>
           </a>
-          <a class="item item-avatar"  href="#/farmProfile/crops">
+          <a class="item item-avatar"  href="#/farmerCrops">
 
             <img class="item-avatar-square" src="img/ic-plant-with-leaves.svg">
             <div style="display:inline;"><p>Crops  ({{crops.length}})</p></div>
